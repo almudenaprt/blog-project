@@ -4,12 +4,14 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)  # Para que muestre los artículos en orden descendiente, del último
+    # que se creó al primero
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comment = Comment.new    #Definimos esta variable para que se muestre el comentario que se acaba de escribir
   end
 
   # GET /posts/new
