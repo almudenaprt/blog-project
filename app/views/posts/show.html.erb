@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h2>
   <%= @post.title %>
-</p>
+</h2>
 
 <p>
   <strong>Author:</strong>
@@ -19,16 +18,22 @@
 <p>
 <%= link_to 'Edit', edit_post_path(@post) %> 
 </p>
-<div id="comments">
-  <% @post.comments.each do |comment| %>
-    <p>
-      <strong><%= comment.author %></strong> comentó: <%= comment.comment_entry %>
-    </p>
-  <% end %>
-  
-  <%= render 'comments/form', comment: @comment %>
-
+<h4>Comentarios</h4>
+<div class= "container">
+  <div id="comments"><br>
+    <% @post.comments.each do |comment| %>
+      <p>
+        <strong class= "text-info"><%= comment.author %></strong> comentó: 
+        <div class= "container text-secondary">
+          <%= comment.comment_entry %>
+        </div>
+      </p>
+    <% end %>    
+  </div>
 </div>
+<br>
+<%= render 'comments/form', comment: @comment %>
+<br>
 <p>
 <%= link_to 'Back', posts_path %>
 </p>

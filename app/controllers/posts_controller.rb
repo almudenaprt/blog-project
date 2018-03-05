@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]  #Antes de accionar estos 4 métodos le ordenamos que
+  #se lleve a cabo el método set_post, que coge el post en concreto (según su ID) para luego realizar con él lo que esté
+  #definido en el método en concreto (show, edit, etc.)
 
   # GET /posts
   # GET /posts.json
