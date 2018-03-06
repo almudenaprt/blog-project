@@ -9,8 +9,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc)  # Para que muestre los artículos en orden descendiente, del último
-    # que se creó al primero
+    @posts = Post.all.order(created_at: :desc).page(params[:page])  # Para que muestre los artículos en orden descendiente, del último
+    # que se creó al primero. .page(params[:page] para hacer que se paginen según indicamos
   end
 
   # GET /posts/1

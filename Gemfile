@@ -67,3 +67,6 @@ gem 'gravatarify'
 
 # Gema para gestionar las imágenes (la que vamos a usar en este proyecto)
 gem 'carrierwave'
+
+# Gema para paginación
+gem 'kaminari'
