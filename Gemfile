@@ -56,3 +56,8 @@ gem 'bootstrap', '~> 4.0.0'
 # JQuery para Bootstrap JS
 gem 'jquery-rails'
 
+# Gema Devise para autenticación
+gem 'devise'
+
+# Gema para que Windows pueda registrar usuarios
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'

@@ -9,7 +9,7 @@
               <h5 class="card-header"><%= post.title %></h5>
                 <div class="container">
                   <p class="card-text"><%= post.blog_entry %></p>
-                  <p class="card-text"><%= post.updated_at.strftime("Creado por #{post.author} el %d/%m/%Y a las %I:%M%p") %></p>
+                  <p class="card-text"><%= post.updated_at.strftime("Creado por #{post.user.username} el %d/%m/%Y a las %I:%M%p") %></p>
                   <a class="btn btn-primary"<%= link_to 'Show', post %></a>
                   <a class="btn btn-info"<%= link_to 'Edit', edit_post_path(post) %></a>
                   <a class="btn btn-danger"<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></a>

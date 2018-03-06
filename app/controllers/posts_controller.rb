@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]  #Antes de accionar estos 4 métodos le ordenamos que
   #se lleve a cabo el método set_post, que coge el post en concreto (según su ID) para luego realizar con él lo que esté
-  #definido en el método en concreto (show, edit, etc.)
+  #definido en el método en concreto (show, edit, etc.). Si no estuviera el "only" se ejecutaría para todos los métodos 
+  #están por debajo
 
   # GET /posts
   # GET /posts.json
@@ -73,6 +74,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :author, :blog_entry)
+      params.require(:post).permit(:title, :author, :blog_entry, :user_id)
     end
 end
