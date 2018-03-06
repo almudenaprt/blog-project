@@ -28,11 +28,16 @@
           <%= comment.comment_entry %>
         </div>
       </p>
-    <% end %>    
+    <% end %>  
   </div>
 </div>
+
 <br>
-<%= render 'comments/form', comment: @comment %>
+<% if user_signed_in? %>
+  <%= render 'comments/form', comment: @comment %>
+<% else %>
+  <p> Los usuarios no registrados no pueden añadir un comentario <%= link_to 'Incia sesión', new_user_session_path %></p> 
+<% end %>
 <br>
 <p>
 <%= link_to 'Back', posts_path %>

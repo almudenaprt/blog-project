@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   #definido en el método en concreto (show, edit, etc.). Si no estuviera el "only" se ejecutaría para todos los métodos 
   #están por debajo
 
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   # GET /posts
   # GET /posts.json
   def index

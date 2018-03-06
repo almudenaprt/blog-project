@@ -61,3 +61,9 @@ gem 'devise'
 
 # Gema para que Windows pueda registrar usuarios
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
+# Gema para mostrar los avatares de los usuarios (en este proyecto no la vamos a usar)
+gem 'gravatarify'
+
+# Gema para gestionar las imágenes (la que vamos a usar en este proyecto)
+gem 'carrierwave'
