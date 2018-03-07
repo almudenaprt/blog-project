@@ -28,6 +28,10 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def user_posts
+    @user = User.find_by(username: params[:name])
+  end
+  
   # POST /posts
   # POST /posts.json
   def create
