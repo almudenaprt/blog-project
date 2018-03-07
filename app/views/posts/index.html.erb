@@ -9,7 +9,7 @@
               <h5 class="card-header"><%= post.title %></h5>
                 <div class="container">
                   <p class="card-text"><%= post.blog_entry.html_safe %></p>
-                  <p class="card-text">Creado por <%= image_tag post.user.avatar.url, size: 20 if post.user.avatar.url %><%=post.user.username %><%= post.updated_at.strftime(" el %d/%m/%Y a las %I:%M%p") %></p>
+                  <p class="card-text">Creado por <%= image_tag post.user.avatar.url, size: 20 if post.user.avatar.url %><%= link_to post.user.username, user_posts_path(name: post.user.username) %><%= post.updated_at.strftime(" el %d/%m/%Y a las %I:%M%p") %></p>
                   <a class="btn btn-primary"<%= link_to 'Show', post %></a>
                   <a class="btn btn-info"<%= link_to 'Edit', edit_post_path(post) %></a>
                   <a class="btn btn-danger"<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></a>

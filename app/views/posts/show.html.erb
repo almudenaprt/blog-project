@@ -6,7 +6,7 @@
 
 <p>
   <strong>Escrito por</strong>
-  <%= @post.user.username %>
+  <%= link_to @post.user.username, user_posts_path(name: @post.user.username) %>
 </p>
 
 <p>
