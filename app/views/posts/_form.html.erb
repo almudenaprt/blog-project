@@ -23,6 +23,11 @@
     <%= form.text_area :blog_entry, placeholder: "Cuéntanos algo...", class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <strong>Elige una foto para el:</strong>
+    <%= form.file_field :image %>
+  </div>
+
   <div class="actions">
     <%= form.submit "Enviar", class: "btn btn-primary" %>
   </div>

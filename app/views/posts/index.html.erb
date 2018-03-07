@@ -1,23 +1,20 @@
 <h1 class="display-3">Posts</h1>
   <p id="notice"><%= notice %></p>
 
-  <div class="row">
+<div class="row">
   <% @posts.each do |post| %>    
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-block">
-              <h5 class="card-header"><%= post.title %></h5>
-                <div class="container">
-                  <p class="card-text"><%= post.blog_entry.html_safe %></p>
-                  <p class="card-text">Creado por <%= image_tag post.user.avatar.url, size: 20 if post.user.avatar.url %><%=post.user.username %><%= post.updated_at.strftime(" el %d/%m/%Y a las %I:%M%p") %></p>
-                  <a class="btn btn-primary"<%= link_to 'Show', post %></a>
-                  <a class="btn btn-info"<%= link_to 'Edit', edit_post_path(post) %></a>
-                  <a class="btn btn-danger"<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></a>
-                </div>
-            </div>
-          </div>
-        </div>       
-<% end %>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag post.image.url, class: "card-img-top" if post.image.url %>
+      <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><%= post.short_entry %></p>
+        <p class="card-text">Creado por <%= image_tag post.user.avatar.url, size: 20 if post.user.avatar.url %><%=post.user.username %><%= post.updated_at.strftime(" el %d/%m/%Y a las %I:%M%p") %></p>
+        <a class="btn btn-primary"<%= link_to 'Show', post %></a>
+        <a class="btn btn-info"<%= link_to 'Edit', edit_post_path(post) %></a>
+        <a class="btn btn-danger"<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+      </div>
+    </div>    
+  <% end %>
 </div>
 
 <br>
@@ -25,3 +22,5 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %> 
+
+  

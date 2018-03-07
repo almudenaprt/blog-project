@@ -1,44 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h2 class="display-4">
-  <%= @post.title %>
-</h2>
-
-<p>
-  <strong>Escrito por</strong>
-  <%= @post.user.username %>
-</p>
-
-<p>
-  <strong>Blog entry:</strong>
-  <%= @post.blog_entry %>
-</p>
-
-
-<p>
-<%= link_to 'Edit', edit_post_path(@post) %> 
-</p>
-<h4>Comentarios</h4>
-<div class= "container">
-  <div id="comments"><br>
-    <% @post.comments.each do |comment| %>
-      <p>
-        <strong class= "text-info"><%= comment.user.username %></strong> comentó: 
-        <div class= "container text-secondary">
-          <%= comment.comment_entry %>
-        </div>
-      </p>
-    <% end %>  
+<div class="card mb-3">
+  <div class= "card-img-top">
+    <%= image_tag @post.image.url if @post.image.url %>
   </div>
+  <div class="card-body">
+    <h1 class="card-title display-3"><%= @post.title %></h1>
+    <p class="card-text"><small class="text-muted">Escrito por <%= @post.user.username %></small></p>
+    <p class="card-text"><%= @post.blog_entry %></p>
+    
+    <p>
+    <%= link_to 'Edit', edit_post_path(@post) %> 
+    </p>
+    <h4>Comentarios</h4>
+      <div class= "container">
+        <div id="comments"><br>
+          <% @post.comments.each do |comment| %>
+            <p>
+              <strong class= "text-info"><%= comment.user.username %></strong> comentó: 
+              <div class= "container text-secondary">
+                <%= comment.comment_entry %>
+              </div>
+            </p>
+          <% end %>  
+        </div>
+    </div>
+    
+      <br>
+      <% if user_signed_in? %>
+        <%= render 'comments/form', comment: @comment %>
+      <% else %>
+        <p> Los usuarios no registrados no pueden añadir un comentario <%= link_to 'Incia sesión', new_user_session_path %></p> 
+      <% end %>
+      <br>
+      <p>
+      <%= link_to 'Back', posts_path %>
+      </p>
+    </div>
 </div>
 
-<br>
-<% if user_signed_in? %>
-  <%= render 'comments/form', comment: @comment %>
-<% else %>
-  <p> Los usuarios no registrados no pueden añadir un comentario <%= link_to 'Incia sesión', new_user_session_path %></p> 
-<% end %>
-<br>
-<p>
-<%= link_to 'Back', posts_path %>
-</p>
+
