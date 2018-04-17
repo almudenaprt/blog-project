@@ -1,21 +1,7 @@
 <h1 class="display-3">Posts</h1>
   <p id="notice"><%= notice %></p>
 
-<div class="row">
-  <% @posts.each do |post| %>    
-    <div class="card" style="width: 18rem;">
-      <%= image_tag post.image.url, class: "card-img-top" if post.image.url %>
-      <div class="card-body">
-        <h5 class="card-title"><%= post.title %></h5>
-        <p class="card-text"><%= post.short_entry %></p>
-        <p class="card-text">Creado por <%= image_tag post.user.avatar.url, size: 20 if post.user.avatar.url %><%=post.user.username %><%= post.updated_at.strftime(" el %d/%m/%Y a las %I:%M%p") %></p>
-        <a class="btn btn-primary"<%= link_to 'Show', post %></a>
-        <a class="btn btn-info"<%= link_to 'Edit', edit_post_path(post) %></a>
-        <a class="btn btn-danger"<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></a>
-      </div>
-    </div>    
-  <% end %>
-</div>
+  <%= render 'row', posts: @posts %>
 
 <br>
 <%= paginate @posts %>  <!-- Para que aparezca abajo el enlace que permite cambiar a otras páginas --!>

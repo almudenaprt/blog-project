@@ -1,0 +1,15 @@
+<div class="row">
+  <% posts.each do |post| %>    
+    <div class="card" style="width: 18rem;">
+      <%= image_tag post.image.url, class: "card-img-top" if post.image.url %>
+      <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><%= post.short_entry %> <%= link_to "leer más", post if post.blog_entry.length>120 %></p>
+        <p class="card-text">Creado por <%= image_tag post.user.avatar.url, size: 20 if post.user.avatar.url %><%= link_to post.user.username, user_posts_path(name: post.user.username) %><%= post.updated_at.strftime(" el %d/%m/%Y a las %I:%M%p") %></p>
+        <a class="btn btn-primary"<%= link_to 'Show', post %></a>
+        <a class="btn btn-info"<%= link_to 'Edit', edit_post_path(post) %></a>
+        <a class="btn btn-danger"<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+      </div>
+    </div>    
+  <% end %>
+</div>

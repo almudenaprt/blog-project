@@ -4,11 +4,11 @@ class Post < ApplicationRecord
 
     mount_uploader :image, ImageUploader
 
-    paginates_per 2
+    paginates_per 4
 
     def short_entry
         if blog_entry.length > 120
-            blog_entry[0..120] + "..."
+            blog_entry[0..120] 
         else
             blog_entry
         end

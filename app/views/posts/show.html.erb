@@ -6,7 +6,7 @@
   </div>
   <div class="card-body">
     <h1 class="card-title display-3"><%= @post.title %></h1>
-    <p class="card-text"><small class="text-muted">Escrito por <%= @post.user.username %></small></p>
+    <p class="card-text"><small class="text-muted">Escrito por <%= link_to @post.user.username, user_posts_path(name: @post.user.username) %></small></p>
     <p class="card-text"><%= @post.blog_entry %></p>
     
     <p>
@@ -17,7 +17,7 @@
         <div id="comments"><br>
           <% @post.comments.each do |comment| %>
             <p>
-              <strong class= "text-info"><%= comment.user.username %></strong> comentó: 
+              <strong class= "text-info"><%= link_to comment.user.username, user_posts_path(name: comment.user.username) %></strong> comentó: 
               <div class= "container text-secondary">
                 <%= comment.comment_entry %>
               </div>
